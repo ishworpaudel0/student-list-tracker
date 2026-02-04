@@ -1,0 +1,15 @@
+import './App.css'
+import Header from './Components/Header';
+import StudentList from './Components/StudentList';
+
+function App() {
+
+  return (
+    <div className='Student-WholeList'>
+    <Header title="Student Tracking App" description="This is an App to keep track of student in ABC school."/>
+    <StudentList />
+    </div>
+  )
+}
+
+export default App;

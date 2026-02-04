@@ -1,0 +1,57 @@
+/* StudentList.css */
+.studen-listing {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.student-listing__Header {
+  color: #1f2937;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.student-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Individual Student Card */
+.student-list > .student-list { 
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.25rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.student-list > .student-list:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.student-list__name {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #1e3a8a;
+  margin: 0 0 0.5rem 0;
+}
+
+.student-list__grade, 
+.student-list__phoneno, 
+.student-list__gender {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin: 0.25rem 0;
+  display: flex;
+  align-items: center;
+}
+
+
+.student-list__grade::before { content: "Grade: "; font-weight: 600; color: #374151; margin-right: 4px; }
+.student-list__phoneno::before { content: "📞 "; margin-right: 4px; }
+.student-list__gender::before { content: "👤 "; margin-right: 4px; }
