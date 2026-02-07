@@ -147,3 +147,10 @@
     object-fit: cover;
     border: 2px solid #e5e7eb;
 }
+.student-listing__Header{
+    margin: 0 0 1.5rem 0;
+    color: #1e3a8a;
+    font-size: 1.5rem;
+    border-left: 4px solid #3b82f6;
+    padding-left: 10px;
+}
