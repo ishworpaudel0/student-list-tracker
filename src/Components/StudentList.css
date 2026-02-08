@@ -56,18 +56,7 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.5rem;
     width: 100%;
-}
 
-/* 4. Individual Card Styling */
-.student-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #ffffff;
-    border: 1px solid #f0f0f0;
-    padding: 1.5rem;
-    border-radius: 10px;
-    transition: transform 0.2s ease;
 }
 
 .student-card:hover {
@@ -110,22 +99,7 @@
     font-weight: 600;
     cursor: pointer;
 
-}
-/* StudentList.css */
 
-/* Style for the photo inside the card */
-.student-card {
-    display: flex;
-    gap: 1rem; /* Space between photo and text */
-    align-items: center;
-}
-
-.student-card__image {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%; /* Makes it circular */
-    object-fit: cover;
-    border: 2px solid #e5e7eb;
 }
 
 /* Style for the file input in the form */
@@ -134,23 +108,38 @@
     color: #6b7280;
     margin-bottom: 0.5rem;
 }
-.student-card {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
 
-.student-card__img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%; /* Makes the local photo circular */
-    object-fit: cover;
-    border: 2px solid #e5e7eb;
-}
+
+
 .student-listing__Header{
     margin: 0 0 1.5rem 0;
     color: #1e3a8a;
     font-size: 1.5rem;
     border-left: 4px solid #3b82f6;
     padding-left: 10px;
+
+}
+/* Update these in StudentList.css */
+.student-card {
+    display: flex;
+    justify-content: flex-start; /* Aligns content to the left */
+    align-items: center;
+    gap: 1.5rem;
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.student-card__img {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0; /* Prevents the circular photo from being crushed */
+    border: 2px solid #3b82f6;
+}
+
+.student-info {
+    flex-grow: 1; /* Pushes the delete button to the right */
 }

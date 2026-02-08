@@ -2,23 +2,57 @@
 .header {
   background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
   color: white;
-  padding: 2.5rem 2rem;
+  padding: 2rem;
   border-radius: 12px;
-  text-align: center;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem;
 }
 
+.header-container {
+    display: flex;
+    align-items: center; /* Vertically centers the logo with the text */
+    gap: 2rem;           /* Space between logo and text */
+    max-width: 1000px;
+    margin: 0 auto;      /* Keeps the content centered in the blue box */
+}
+
+.header-logo {
+    width: 100px;        /* Increased size for better visibility */
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;  /* Makes the logo circular */
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    flex-shrink: 0;      /* Prevents the logo from being squished */
+}
+
+.header-text {
+    text-align: left;    /* Aligns text to the left since logo is on the side */
+}
+
 .header-title {
   margin: 0;
-  font-size: 2.25rem;
+  font-size: 2rem;
   font-weight: 800;
   letter-spacing: -0.025em;
 }
 
 .header-description {
-  margin-top: 0.75rem;
+  margin-top: 0.5rem;
   opacity: 0.9;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 300;
+  line-height: 1.4;
+}
+
+/* Responsive adjustment for mobile phones */
+@media (max-width: 600px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .header-text {
+        text-align: center;
+    }
 }

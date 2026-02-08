@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './StudentList.css';
 import ramphoto from '../assets/ram.jpeg';
 import sitaphoto from '../assets/sita.jpeg';
@@ -37,16 +37,37 @@ const StudentItem=()=>{
     const[phoneno,setphoneno]=useState<number>();
     const[gender,setGender]=useState<Gender>("Male");
     const [photo, setPhoto] = useState<string>("");
-    const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?.[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                setPhoto(reader.result as string);
+    const [isLoaded, setIsLoaded] = useState(false);
+    useEffect(() => {
+        const items = localStorage.getItem("StudentList");
+        if (items) {
+            try {
+            const itemParsed: StudentList[] = JSON.parse(items);
+            setStudentList(itemParsed);
+            } catch (e) {
+            console.error("Error loading storage:", e);
             }
-        reader.readAsDataURL(file);
         }
+        setIsLoaded(true); 
+    }, []);
+
+useEffect(() => {
+    if (isLoaded) {
+        localStorage.setItem("StudentList", JSON.stringify(StudentList));
     }
+    }, [StudentList, isLoaded])
+   
+    const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            // Converts the local image file into a Base64 string for storage
+            setPhoto(reader.result as string);
+        };
+        reader.readAsDataURL(file);
+    }
+};
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault();
@@ -76,7 +97,7 @@ const StudentItem=()=>{
         setStudentList(prev => [...prev,itemToAdd])
         setName("");
         setGrade("");
-        setphoneno(0);
+        setphoneno(undefined);
         setGender("Male");
         setPhoto("");
     }
@@ -136,7 +157,7 @@ const StudentItem=()=>{
             <div className='studen-listing'>
                 <h2 className='student-listing__Header'>Student List</h2>
             <div className='student-list-container'>
-                {StudentList.map(item=>(
+                {StudentList.slice().sort((a, b) => a.name.localeCompare(b.name)).map(item => (
                     <div className="student-card" key={item.id}>
                         <img src={item.photo} alt={item.name} className="student-card__img" />
                         <div className='student-info'>
