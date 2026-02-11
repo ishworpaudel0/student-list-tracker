@@ -1,0 +1,62 @@
+/* StudentDisplay.css */
+.studen-listing {
+  width: 100%;
+}
+
+.student-listing__Header {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.5rem;
+  color: #1e3a8a;
+}
+
+.student-list-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column layout for side-by-side view */
+  gap: 1rem;
+}
+
+.student-card {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  gap: 1.5rem;
+}
+
+.student-card__img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.student-info {
+  flex-grow: 1;
+}
+
+.student-list__name {
+  font-weight: 700;
+  margin: 0;
+}
+
+.student-list__grade {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.student-list__delete {
+  background: #fee2e2;
+  color: #ef4444;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.student-list__delete:hover {
+  background: #fecaca;
+}

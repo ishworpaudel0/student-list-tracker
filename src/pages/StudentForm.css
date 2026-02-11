@@ -1,0 +1,74 @@
+/* StudentForm.css */
+.add-page-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.form-column {
+  flex: 1; /* Left Side: 40% */
+  position: sticky;
+  top: 20px;
+}
+
+.list-column {
+  flex: 1.5; /* Right Side: 60% */
+}
+
+.Form {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.Form-Student {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.Form-Student input, .Form-Student select {
+  padding: 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.Button_Submit {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+  .add-page-container {
+    flex-direction: column;
+  }
+  .form-column {
+    position: static;
+    width: 100%;
+  }
+}
+/* StudentForm.css */
+
+/* Target both headings at once to ensure they are identical */
+.Form-Heading, 
+.student-listing__Header {
+    font-size: 1.5rem;          /* Consistent size */
+    font-weight: 700;           /* Boldness */
+    color: #1e3a8a;             /* Unified Dark Blue */
+    margin: 0 0 1.5rem 0;       /* Consistent spacing below */
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e2e8f0; /* Optional: Adds a clean underline */
+    letter-spacing: -0.025em;
+    text-transform: capitalize;  /* Ensures they follow same casing */
+}

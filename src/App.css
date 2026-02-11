@@ -1,13 +1,20 @@
 /* App.css */
+* {
+  box-sizing: border-box; /* Crucial for alignment */
+}
+
 body {
   margin: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: #f4f7f9;
-  color: #333;
+  font-family: 'Inter', sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
 }
 
 .Student-WholeList {
-  max-width: 800px;
+  width: 95%;
+  max-width: 1200px; /* This is the boundary for all content */
   margin: 2rem auto;
-  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }

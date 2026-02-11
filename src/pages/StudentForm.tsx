@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
-import './StudentList.css';
-import ramphoto from '../assets/ram.jpeg';
-import sitaphoto from '../assets/sita.jpeg';
+import { useState } from 'react';
+import './StudentForm.css';
+import ramphoto from '../assets/ram.jpeg'
+import sitaphoto from '../assets/sita.jpeg'
+import useStudentTracker from '../hooks/useStudentTracker';
 
-type Gender= "Male" | "Female" | "Other";
-interface StudentList{
+export type Gender= "Male" | "Female" | "Other";
+export interface StudentList{
     id:string;
     name:string;
     grade:string;
@@ -12,7 +13,7 @@ interface StudentList{
     gender:Gender;
     photo: string;
 }
-const InitialStudentList: StudentList[]=[
+export const InitialStudentList: StudentList[]=[
     {
         id:"A101",
         name:"Ram Bhandari",
@@ -31,33 +32,13 @@ const InitialStudentList: StudentList[]=[
     }
 ]
 const StudentItem=()=>{
-    const[StudentList,setStudentList]=useState<StudentList[]>(InitialStudentList);
+    const {handdleDelete, StudentList, setStudentList} = useStudentTracker();
     const[name,setName]=useState("");
     const[grade,setGrade]=useState("");
     const[phoneno,setphoneno]=useState<number>();
     const[gender,setGender]=useState<Gender>("Male");
     const [photo, setPhoto] = useState<string>("");
-    const [isLoaded, setIsLoaded] = useState(false);
-    useEffect(() => {
-        const items = localStorage.getItem("StudentList");
-        if (items) {
-            try {
-            const itemParsed: StudentList[] = JSON.parse(items);
-            setStudentList(itemParsed);
-            } catch (e) {
-            console.error("Error loading storage:", e);
-            }
-        }
-        setIsLoaded(true); 
-    }, []);
-
-useEffect(() => {
-    if (isLoaded) {
-        localStorage.setItem("StudentList", JSON.stringify(StudentList));
-    }
-    }, [StudentList, isLoaded])
-   
-    const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+           const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
         const reader = new FileReader();
@@ -68,6 +49,7 @@ useEffect(() => {
         reader.readAsDataURL(file);
     }
 };
+  
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault();
@@ -101,13 +83,10 @@ useEffect(() => {
         setGender("Male");
         setPhoto("");
     }
-    const handdleDelete = (id:string) =>{
-        const newArray = StudentList.filter(item => item.id !== id);
-        setStudentList(newArray);
-
-    }
+    
         return(
-            <div className='Components'>
+            <div className='add-page-container'>
+            <div className='form-column'>
             <div className='Form'>
                 <h2 className='Form-Heading'>Add Students</h2>
                 <form className='Form-Student' onSubmit={handleSubmit}>
@@ -152,8 +131,9 @@ useEffect(() => {
 
                 </form>
 
-
             </div>
+            </div>
+            <div className='list-column'>
             <div className='studen-listing'>
                 <h2 className='student-listing__Header'>Student List</h2>
             <div className='student-list-container'>
@@ -171,6 +151,7 @@ useEffect(() => {
                         </button>
                     </div>    
                 ))}
+            </div>
             </div>
             </div>
             </div>
