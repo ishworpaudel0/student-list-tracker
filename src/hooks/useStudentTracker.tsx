@@ -1,6 +1,14 @@
 import { useEffect, useState } from 'react';
-import { InitialStudentList } from '../pages/StudentForm';
+import ramphoto from '../assets/ram.jpeg'
+import sitaphoto from '../assets/sita.jpeg'
+
 export type Gender= "Male" | "Female" | "Other";
+export interface marks{
+    Math: string;
+    Science: string;
+    English: string;
+    Nepali: string;
+}
 export interface StudentList{
     id:string;
     name:string;
@@ -8,7 +16,39 @@ export interface StudentList{
     phoneno:number;
     gender:Gender;
     photo: string;
+    Marks: marks;
 }
+export const InitialStudentList: StudentList[]=[
+    {
+        id:"A101",
+        name:"Ram Bhandari",
+        grade:"A-",
+        phoneno:9860111189,
+        gender:"Male",
+        photo: ramphoto,
+        Marks:{
+            Math: "A+",
+            Science: "A",
+            English: "A-",
+            Nepali: "A-"
+        }
+    },
+    {
+        id:"A102",
+        name:"Sita",
+        grade:"B+",
+        phoneno:9860111494,
+        gender:"Female",
+        photo:sitaphoto,
+        Marks:{
+            Math: "A-",
+            Science: "B-",
+            English: "B",
+            Nepali: "B-"
+        }
+    }
+]
+
 const useStudentTracker = () => {
     const[StudentList,setStudentList]=useState<StudentList[]>(InitialStudentList);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -38,7 +78,7 @@ const useStudentTracker = () => {
  
     return{
             StudentList, setStudentList, handdleDelete
-    }
+    };
 }
 
 export default useStudentTracker;

@@ -1,0 +1,31 @@
+/* StudentEdit.css */
+.Form-edit {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-top: 8px solid #3182ce; /* Matching your theme */
+}
+
+.Form-Edit-Heading {
+    text-align: center;
+    color: #1a365d;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+/* Enhancing the reused Form Component inside Edit Page */
+.Form-edit .Button_Submit {
+    background: #2b6cb0;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.error-message {
+    text-align: center;
+    margin-top: 100px;
+    color: #e53e3e;
+    font-size: 1.2rem;
+}

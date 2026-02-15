@@ -1,0 +1,7 @@
+/* StudentDetailLayout.css */
+.Layout {
+    min-height: 90vh;
+    background-color: #f0f4f8; /* Light blue-grey background */
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
