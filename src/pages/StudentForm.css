@@ -72,3 +72,85 @@
     letter-spacing: -0.025em;
     text-transform: capitalize;  /* Ensures they follow same casing */
 }
+/* Student Name styling */
+.student-list__name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a365d; /* Deep blue */
+    margin: 0 0 8px 0;
+    letter-spacing: -0.2px;
+}
+
+/* Container for the small details */
+.student-list__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.student-list__meta p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #4a5568; /* Soft grey-dark */
+    display: flex;
+    align-items: center;
+}
+
+/* Styling the "Labels" (Grade:, Gender:, etc.) */
+.student-list__meta p span {
+    font-weight: 600;
+    color: #718096; /* Lighter grey for labels */
+    width: 65px; /* Keeps everything aligned in a straight line */
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Make the Grade stand out like a badge */
+.student-list__grade {
+    background: #ebf8ff;
+    color: #2b6cb0;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 800;
+    margin-left: 5px;
+}
+/* Add this right after your .student-card__img styles */
+
+.student-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* This pushes the delete button to the far right */
+}
+
+.student-list__name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a365d;
+    margin: 0 0 5px 0;
+}
+
+.student-info p:not(.student-list__name) {
+    margin: 2px 0;
+    font-size: 0.9rem;
+    color: #4a5568;
+    display: flex;
+}
+
+/* This is the secret to the professional look: Aligned Labels */
+.student-info p strong {
+    width: 65px; /* Adjust this width so labels line up */
+    color: #a0aec0;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.student-list__view-detail {
+  background: #e0f2fe;
+  color: #0366d6;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}

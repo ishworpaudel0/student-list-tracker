@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import ramphoto from '../assets/ram.jpeg'
 import sitaphoto from '../assets/sita.jpeg'
 
+import { useNavigate } from 'react-router-dom';
+
 export type Gender= "Male" | "Female" | "Other";
 export interface marks{
     Math: string;
@@ -52,6 +54,8 @@ export const InitialStudentList: StudentList[]=[
 const useStudentTracker = () => {
     const[StudentList,setStudentList]=useState<StudentList[]>(InitialStudentList);
     const [isLoaded, setIsLoaded] = useState(false);
+    const Navigate = useNavigate();
+    
         useEffect(() => {
             const items = localStorage.getItem("StudentList");
             if (items) {
@@ -64,6 +68,9 @@ const useStudentTracker = () => {
             }
             setIsLoaded(true); 
         }, []);
+            const handdleDetail = (id:string) =>{
+                Navigate(`/item/${id}`);
+            }
     
     useEffect(() => {
         if (isLoaded) {
@@ -77,7 +84,7 @@ const useStudentTracker = () => {
          }
  
     return{
-            StudentList, setStudentList, handdleDelete
+            StudentList, setStudentList, handdleDelete, handdleDetail
     };
 }
 
